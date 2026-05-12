@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Products | IraIle</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ===================================== */
+    /* RESET */
+    /* ===================================== */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+
+      font-family:'Inter',sans-serif;
+
+      background:#050505;
+
+      color:#ffffff;
+
+      overflow-x:hidden;
+
+      line-height:1.7;
+
+    }
+
+    a{
+      text-decoration:none;
+      color:inherit;
+    }
+
+    /* ===================================== */
+    /* NAVBAR */
+    /* ===================================== */
+
+    nav{
+
+      width:100%;
+
+      padding:22px 8%;
+
+      display:flex;
+
+      justify-content:space-between;
+
+      align-items:center;
+
+      position:fixed;
+
+      top:0;
+
+      left:0;
+
+      z-index:1000;
+
+      background:rgba(0,0,0,0.85);
+
+      backdrop-filter:blur(10px);
+
+      border-bottom:1px solid rgba(255,255,255,0.08);
+
+    }
+
+    .logo{
+
+      font-size:28px;
+
+      font-weight:800;
+
+      letter-spacing:1px;
+
+    }
+
+    .logo span{
+      color:#76B900;
+    }
+
+    .nav-links{
+
+      display:flex;
+
+      gap:35px;
+
+    }
+
+    .nav-links a{
+
+      color:#d1d1d1;
+
+      font-size:15px;
+
+      transition:0.3s;
+
+    }
+
+    .nav-links a:hover{
+      color:#76B900;
+    }
+
+    /* ===================================== */
+    /* HERO SECTION */
+    /* ===================================== */
+
+    .hero{
+
+      min-height:100vh;
+
+      display:flex;
+
+      align-items:center;
+
+      padding:140px 8% 100px;
+
+      position:relative;
+
+      overflow:hidden;
+
+    }
+
+    .hero::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:700px;
+
+      height:700px;
+
+      background:#76B900;
+
+      filter:blur(180px);
+
+      opacity:0.12;
+
+      top:-200px;
+
+      right:-200px;
+
+      border-radius:50%;
+
+    }
+
+    .hero-content{
+
+      position:relative;
+
+      z-index:2;
+
+      max-width:800px;
+
+    }
+
+    .hero-tag{
+
+      display:inline-block;
+
+      padding:10px 18px;
+
+      background:rgba(118,185,0,0.12);
+
+      border:1px solid rgba(118,185,0,0.3);
+
+      border-radius:50px;
+
+      color:#76B900;
+
+      font-size:14px;
+
+      margin-bottom:30px;
+
+    }
+
+    .hero h1{
+
+      font-size:78px;
+
+      line-height:1.05;
+
+      margin-bottom:30px;
+
+      font-weight:900;
+
+      letter-spacing:-2px;
+
+    }
+
+    .hero p{
+
+      font-size:20px;
+
+      color:#bcbcbc;
+
+      max-width:700px;
+
+      margin-bottom:40px;
+
+    }
+
+    .hero-btn{
+
+      display:inline-block;
+
+      padding:16px 34px;
+
+      background:#76B900;
+
+      color:#000;
+
+      border-radius:10px;
+
+      font-weight:700;
+
+      transition:0.3s;
+
+    }
+
+    .hero-btn:hover{
+
+      transform:translateY(-3px);
+
+      box-shadow:0 10px 30px rgba(118,185,0,0.35);
+
+    }
+
+    /* ===================================== */
+    /* SECTION */
+    /* ===================================== */
+
+    section{
+      padding:100px 8%;
+    }
+
+    .section-title{
+
+      font-size:52px;
+
+      margin-bottom:20px;
+
+      font-weight:800;
+
+      letter-spacing:-1px;
+
+    }
+
+    .section-subtitle{
+
+      color:#b0b0b0;
+
+      max-width:800px;
+
+      margin-bottom:70px;
+
+      font-size:18px;
+
+    }
+
+    /* ===================================== */
+    /* PRODUCTS GRID */
+    /* ===================================== */
+
+    .products-grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+      gap:30px;
+
+    }
+
+    .product-card{
+
+      background:#111111;
+
+      border:1px solid rgba(255,255,255,0.06);
+
+      border-radius:24px;
+
+      padding:40px;
+
+      transition:0.4s;
+
+      position:relative;
+
+      overflow:hidden;
+
+    }
+
+    .product-card::before{
+
+      content:"";
+
+      position:absolute;
+
+      top:0;
+
+      left:0;
+
+      width:100%;
+
+      height:4px;
+
+      background:#76B900;
+
+      transform:scaleX(0);
+
+      transition:0.4s;
+
+      transform-origin:left;
+
+    }
+
+    .product-card:hover::before{
+      transform:scaleX(1);
+    }
+
+    .product-card:hover{
+
+      transform:translateY(-8px);
+
+      border-color:rgba(118,185,0,0.35);
+
+      box-shadow:0 20px 50px rgba(0,0,0,0.5);
+
+    }
+
+    .product-icon{
+
+      width:70px;
+
+      height:70px;
+
+      border-radius:18px;
+
+      background:rgba(118,185,0,0.12);
+
+      display:flex;
+
+      align-items:center;
+
+      justify-content:center;
+
+      font-size:28px;
+
+      color:#76B900;
+
+      margin-bottom:25px;
+
+    }
+
+    .product-card h3{
+
+      font-size:28px;
+
+      margin-bottom:18px;
+
+    }
+
+    .product-card p{
+
+      color:#bcbcbc;
+
+      font-size:16px;
+
+      margin-bottom:25px;
+
+    }
+
+    .status{
+
+      display:inline-block;
+
+      padding:8px 16px;
+
+      border-radius:50px;
+
+      background:rgba(255,255,255,0.06);
+
+      color:#76B900;
+
+      font-size:13px;
+
+      font-weight:600;
+
+      letter-spacing:0.5px;
+
+    }
+
+    /* ===================================== */
+    /* FUTURE SECTION */
+    /* ===================================== */
+
+    .future{
+
+      background:#0c0c0c;
+
+      border-top:1px solid rgba(255,255,255,0.05);
+
+      border-bottom:1px solid rgba(255,255,255,0.05);
+
+    }
+
+    .future-box{
+
+      max-width:950px;
+
+    }
+
+    .future-box h2{
+
+      font-size:58px;
+
+      line-height:1.1;
+
+      margin-bottom:30px;
+
+      font-weight:900;
+
+    }
+
+    .future-box p{
+
+      color:#bcbcbc;
+
+      font-size:20px;
+
+    }
+
+    /* ===================================== */
+    /* FOOTER */
+    /* ===================================== */
+
+    footer{
+
+      padding:40px 8%;
+
+      display:flex;
+
+      justify-content:space-between;
+
+      align-items:center;
+
+      flex-wrap:wrap;
+
+      gap:20px;
+
+      background:#050505;
+
+    }
+
+    footer p{
+      color:#8a8a8a;
+    }
+
+    .footer-links{
+
+      display:flex;
+
+      gap:25px;
+
+    }
+
+    .footer-links a{
+
+      color:#9a9a9a;
+
+      transition:0.3s;
+
+    }
+
+    .footer-links a:hover{
+      color:#76B900;
+    }
+
+    /* ===================================== */
+    /* RESPONSIVE */
+    /* ===================================== */
+
+    @media(max-width:900px){
+
+      .hero h1{
+        font-size:56px;
+      }
+
+      .section-title{
+        font-size:40px;
+      }
+
+      .future-box h2{
+        font-size:42px;
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      nav{
+        padding:20px 5%;
+      }
+
+      .nav-links{
+        display:none;
+      }
+
+      .hero{
+        padding:140px 5% 80px;
+      }
+
+      section{
+        padding:80px 5%;
+      }
+
+      .hero h1{
+        font-size:44px;
+      }
+
+      .hero p{
+        font-size:17px;
+      }
+
+      .future-box h2{
+        font-size:34px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">Ira<span>Ile</span></div>
+
+    <div class="nav-links">
+
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html">Contact</a>
+
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <div class="hero-tag">
+        NEXT GENERATION INTELLIGENT TECHNOLOGY
+      </div>
+
+      <h1>
+        Building AI, Robotics & Future Digital Systems
+      </h1>
+
+      <p>
+        IraIle is developing intelligent platforms across artificial intelligence,
+        robotics, enterprise software, automation, digital infrastructure,
+        and AI-powered learning technologies designed for the future.
+      </p>
+
+      <a href="#products" class="hero-btn">
+        Explore Products
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- PRODUCTS -->
+
+  <section id="products">
+
+    <h2 class="section-title">
+      Products In Development
+    </h2>
+
+    <p class="section-subtitle">
+
+      Our platforms are currently in research and development, focused on
+      building intelligent systems for learning, automation, enterprise
+      operations, robotics, and future digital experiences.
+
+    </p>
+
+    <div class="products-grid">
+
+      <div class="product-card">
+
+        <div class="product-icon">AI</div>
+
+        <h3>AI Tutor Platform</h3>
+
+        <p>
+          An advanced AI-powered learning ecosystem designed for personalized
+          education, intelligent tutoring, adaptive learning, and future-ready
+          digital classrooms.
+        </p>
+
+        <span class="status">UNDER DEVELOPMENT</span>
+
+      </div>
+
+      <div class="product-card">
+
+        <div class="product-icon">R</div>
+
+        <h3>Robotics Systems</h3>
+
+        <p>
+          Researching intelligent robotics and autonomous systems focused on
+          smart automation, machine interaction, and future industrial technology.
+        </p>
+
+        <span class="status">RESEARCH PHASE</span>
+
+      </div>
+
+      <div class="product-card">
+
+        <div class="product-icon">E</div>
+
+        <h3>Enterprise Software</h3>
+
+        <p>
+          Scalable enterprise platforms for workflow management,
+          intelligent automation, productivity, and AI-driven business operations.
+        </p>
+
+        <span class="status">COMING SOON</span>
+
+      </div>
+
+      <div class="product-card">
+
+        <div class="product-icon">D</div>
+
+        <h3>Digital Platforms</h3>
+
+        <p>
+          Modern AI-integrated digital ecosystems for creators,
+          businesses, communities, and next-generation online experiences.
+        </p>
+
+        <span class="status">IN DEVELOPMENT</span>
+
+      </div>
+
+      <div class="product-card">
+
+        <div class="product-icon">C</div>
+
+        <h3>Creative AI Tools</h3>
+
+        <p>
+          AI-powered creative technologies for content creation,
+          branding, digital media workflows, and intelligent design systems.
+        </p>
+
+        <span class="status">FUTURE PROJECT</span>
+
+      </div>
+
+      <div class="product-card">
+
+        <div class="product-icon">A</div>
+
+        <h3>Automation Systems</h3>
+
+        <p>
+          Intelligent automation platforms designed to improve operational
+          efficiency, business workflows, and digital transformation.
+        </p>
+
+        <span class="status">UNDER RESEARCH</span>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FUTURE -->
+
+  <section class="future">
+
+    <div class="future-box">
+
+      <h2>
+        Engineering The Future Of Intelligence
+      </h2>
+
+      <p>
+
+        IraIle is focused on creating intelligent technologies that combine
+        AI, robotics, automation, and scalable software systems to shape the
+        future of digital innovation and human-machine interaction.
+
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      © 2026 IraIle Corporation. All rights reserved.
+    </p>
+
+    <div class="footer-links">
+
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">LinkedIn</a>
+
+    </div>
+
+  </footer>
+
+</body>
+
+</html>

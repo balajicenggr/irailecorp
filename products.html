@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Products | IraIle</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+
+      font-family:'Inter',sans-serif;
+
+      background:#f7f8fa;
+
+      color:#111827;
+
+      overflow-x:hidden;
+
+    }
+
+    /* ========================= */
+    /* HEADER */
+    /* ========================= */
+
+    header{
+
+      width:100%;
+      height:50px;
+
+      background:rgba(255,255,255,0.94);
+
+      backdrop-filter:blur(18px);
+
+      border-bottom:1px solid #e5e7eb;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      padding:0 50px;
+
+      position:sticky;
+      top:0;
+      z-index:1000;
+
+    }
+
+    /* ========================= */
+    /* LOGO */
+    /* ========================= */
+
+    .logo{
+
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+    }
+
+    .logo img{
+
+      width:30px;
+      height:30px;
+
+      object-fit:cover;
+
+    }
+
+    .logo h1{
+
+      font-family:'Orbitron',sans-serif;
+
+      font-size:24px;
+
+      font-weight:700;
+
+      color:#00851f;
+
+      letter-spacing:1px;
+
+    }
+
+    /* ========================= */
+    /* NAVIGATION */
+    /* ========================= */
+
+    nav{
+
+      display:flex;
+      align-items:center;
+      gap:32px;
+
+    }
+
+    nav a{
+
+      text-decoration:none;
+
+      color:#6b7280;
+
+      font-size:14px;
+
+      font-weight:600;
+
+      transition:0.3s;
+
+      position:relative;
+
+      padding:24px 0;
+
+    }
+
+    nav a:hover{
+
+      color:#111827;
+
+    }
+
+    nav a.active{
+
+      color:#111827;
+
+    }
+
+    nav a.active::after{
+
+      content:"";
+
+      position:absolute;
+
+      left:0;
+      bottom:0;
+
+      width:100%;
+      height:2px;
+
+      background:#00851f;
+
+      border-radius:10px;
+
+    }
+
+    /* ========================= */
+    /* MAIN LAYOUT */
+    /* ========================= */
+
+    .products-layout{
+
+      width:100%;
+
+      min-height:calc(100vh - 70px);
+
+      display:flex;
+
+    }
+
+    /* ========================= */
+    /* SIDEBAR */
+    /* ========================= */
+
+    .sidebar{
+
+      width:290px;
+
+      background:#f1f3f5;
+
+      border-right:1px solid #dfe3e8;
+
+      padding:40px 34px;
+
+    }
+
+    .sidebar-title{
+
+      font-size:12px;
+
+      color:#9ca3af;
+
+      font-weight:700;
+
+      letter-spacing:1.5px;
+
+      margin-bottom:28px;
+
+    }
+
+    .sidebar ul{
+
+      list-style:none;
+
+    }
+
+    .sidebar li{
+
+      margin-bottom:16px;
+
+    }
+
+    .sidebar a{
+
+      display:block;
+
+      text-decoration:none;
+
+      color:#4b5563;
+
+      font-size:15px;
+
+      font-weight:600;
+
+      padding:13px 15px;
+
+      border-radius:14px;
+
+      transition:0.3s;
+
+    }
+
+    .sidebar a:hover{
+
+      background:white;
+
+      color:#00851f;
+
+    }
+
+    .sidebar .active{
+
+      background:white;
+
+      color:#111827;
+
+      border-left:4px solid #00851f;
+
+      box-shadow:0 4px 18px rgba(0,0,0,0.04);
+
+    }
+
+    /* ========================= */
+    /* CONTENT */
+    /* ========================= */
+
+    .content{
+
+      flex:1;
+
+      padding:60px;
+
+    }
+
+    .content-top{
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      flex-wrap:wrap;
+
+      gap:25px;
+
+      margin-bottom:55px;
+
+    }
+
+    .content h2{
+
+      font-size:46px;
+
+      font-weight:800;
+
+      color:#111827;
+
+      letter-spacing:-1px;
+
+    }
+
+    .content-sub{
+
+      max-width:540px;
+
+      color:#6b7280;
+
+      font-size:15px;
+
+      line-height:1.9;
+
+    }
+
+    /* ========================= */
+    /* GRID */
+    /* ========================= */
+
+    .grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+
+      gap:30px;
+
+    }
+
+    /* ========================= */
+    /* CARD */
+    /* ========================= */
+
+    .card{
+
+      position:relative;
+
+      background:white;
+
+      border:1px solid #e5e7eb;
+
+      border-radius:24px;
+
+      padding:34px;
+
+      text-decoration:none;
+
+      overflow:hidden;
+
+      transition:0.35s;
+
+    }
+
+    .card::before{
+
+      content:"";
+
+      position:absolute;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:4px;
+
+      background:#00851f;
+
+      transform:scaleX(0);
+
+      transform-origin:left;
+
+      transition:0.35s;
+
+    }
+
+    .card:hover::before{
+
+      transform:scaleX(1);
+
+    }
+
+    .card:hover{
+
+      transform:translateY(-8px);
+
+      border-color:#d7f5df;
+
+      box-shadow:0 18px 45px rgba(0,0,0,0.06);
+
+    }
+
+    /* ========================= */
+    /* TAGS */
+    /* ========================= */
+
+    .tag{
+
+      display:inline-flex;
+
+      align-items:center;
+
+      padding:8px 14px;
+
+      border-radius:50px;
+
+      background:#ecfdf3;
+
+      color:#00851f;
+
+      font-size:11px;
+
+      font-weight:700;
+
+      letter-spacing:0.5px;
+
+      margin-right:10px;
+
+      margin-bottom:16px;
+
+    }
+
+    .coming{
+
+      background:#111827;
+
+      color:white;
+
+    }
+
+    /* ========================= */
+    /* CARD CONTENT */
+    /* ========================= */
+
+    .card h3{
+
+      font-size:34px;
+
+      font-weight:800;
+
+      color:#111827;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      margin-top:10px;
+      margin-bottom:18px;
+
+    }
+
+    .arrow{
+
+      font-size:28px;
+
+      color:#00851f;
+
+      transition:0.3s;
+
+    }
+
+    .card:hover .arrow{
+
+      transform:translateX(5px);
+
+    }
+
+    .card p{
+
+      color:#6b7280;
+
+      font-size:15px;
+
+      line-height:1.9;
+
+    }
+
+    /* ========================= */
+    /* LYNX CARD */
+    /* ========================= */
+
+    .lynx{
+
+      background:
+      linear-gradient(
+      135deg,
+      #ffffff,
+      #f7fff9
+      );
+
+      border:1px solid #d8f5df;
+
+    }
+
+    .lynx-glow{
+
+      position:absolute;
+
+      width:260px;
+      height:260px;
+
+      background:rgba(0,133,31,0.08);
+
+      border-radius:50%;
+
+      top:-100px;
+      right:-100px;
+
+      filter:blur(55px);
+
+    }
+
+    /* ========================= */
+    /* FOOTER */
+    /* ========================= */
+
+    footer{
+
+      text-align:center;
+
+      padding:18px;
+
+      background:#ffffff;
+
+      border-top:1px solid #e5e7eb;
+
+      color:#6b7280;
+
+      font-size:13px;
+
+    }
+
+    /* ========================= */
+    /* RESPONSIVE */
+    /* ========================= */
+
+    @media(max-width:1000px){
+
+      .products-layout{
+
+        flex-direction:column;
+
+      }
+
+      .sidebar{
+
+        width:100%;
+
+        border-right:none;
+
+        border-bottom:1px solid #dfe3e8;
+
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      header{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:18px;
+
+        gap:14px;
+
+      }
+
+      nav{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:18px;
+
+      }
+
+      .content{
+
+        padding:40px 24px;
+
+      }
+
+      .content h2{
+
+        font-size:34px;
+
+      }
+
+      .sidebar{
+
+        padding:28px;
+
+      }
+
+      .grid{
+
+        grid-template-columns:1fr;
+
+      }
+
+      .card h3{
+
+        font-size:28px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header>
+
+  <div class="logo">
+
+    <img src="logo7.png"
+         alt="IraIle Logo">
+
+    <h1>IraIle</h1>
+
+  </div>
+
+  <nav>
+
+    <a href="index.html">
+
+      Home
+
+    </a>
+
+    <a href="products.html"
+       class="active">
+
+      Products
+
+    </a>
+
+    <a href="careers.html">
+
+      Careers
+
+    </a>
+
+    <a href="about.html">
+
+      About Us
+
+    </a>
+
+    <a href="contact.html">
+
+      Contact
+
+    </a>
+
+  </nav>
+
+</header>
+
+<!-- ========================= -->
+<!-- MAIN -->
+<!-- ========================= -->
+
+<section class="products-layout">
+
+  <!-- SIDEBAR -->
+
+  <aside class="sidebar">
+
+    <div class="sidebar-title">
+
+      PRODUCT CATEGORIES
+
+    </div>
+
+    <ul>
+
+      <li>
+
+        <a href="#"
+           class="active">
+
+          Creative Platforms
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="#">
+
+          AI Systems
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="#">
+
+          Enterprise Software
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="#">
+
+          Robotics
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="#">
+
+          Cloud Infrastructure
+
+        </a>
+
+      </li>
+
+      <li>
+
+        <a href="#">
+
+          Research Labs
+
+        </a>
+
+      </li>
+
+    </ul>
+
+  </aside>
+
+  <!-- CONTENT -->
+
+  <div class="content">
+
+    <div class="content-top">
+
+      <div>
+
+        <h2>
+
+          Creative Platforms
+
+        </h2>
+
+      </div>
+
+      <div class="content-sub">
+
+        Exploring next-generation AI creative tools,
+        intelligent automation systems,
+        and future-ready digital experiences
+        for creators, startups, and enterprises.
+
+      </div>
+
+    </div>
+
+    <!-- GRID -->
+
+    <div class="grid">
+
+      <!-- LYNX CARD -->
+
+      <a href="lynx.html"
+         class="card lynx">
+
+        <div class="lynx-glow"></div>
+
+        <div>
+
+          <span class="tag">
+
+            AI CREATIVE PLATFORM
+
+          </span>
+
+          <span class="tag coming">
+
+            COMING SOON
+
+          </span>
+
+        </div>
+
+        <h3>
+
+          Lynx
+
+          <span class="arrow">
+
+            ›
+
+          </span>
+
+        </h3>
+
+        <p>
+
+          AI-powered platform for creators,
+          influencers, startups,
+          and digital marketing teams.
+
+          Generate campaigns,
+          automate content,
+          and accelerate creativity
+          with intelligent workflows.
+
+        </p>
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+
+  © 2026 IraIle. All Rights Reserved.
+
+</footer>
+
+</body>
+</html>

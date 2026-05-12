@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Lynx | IraIle</title>
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+
+      font-family:Arial,sans-serif;
+      background:#ffffff;
+      color:#111111;
+      overflow-x:hidden;
+
+    }
+
+    /* HEADER */
+
+    header{
+
+      width:100%;
+      padding:14px 7%;
+      background:rgba(255,255,255,0.95);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid #e5e7eb;
+
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+
+      position:sticky;
+      top:0;
+      z-index:1000;
+
+    }
+
+    .logo-section{
+
+      display:flex;
+      align-items:center;
+      gap:10px;
+
+    }
+
+    .logo-image{
+
+      width:34px;
+      height:34px;
+
+    }
+
+    .logo-text{
+
+      font-family:'Orbitron',sans-serif;
+      font-size:30px;
+      color:#00851f;
+
+    }
+
+    nav{
+
+      display:flex;
+      gap:22px;
+
+    }
+
+    nav a{
+
+      text-decoration:none;
+      color:#374151;
+      font-size:14px;
+      font-weight:600;
+      transition:0.3s;
+
+    }
+
+    nav a:hover{
+
+      color:#00851f;
+
+    }
+
+    /* HERO */
+
+    .hero{
+
+      min-height:90vh;
+
+      display:flex;
+      align-items:center;
+
+      padding:100px 8%;
+
+      position:relative;
+      overflow:hidden;
+
+      background:
+      linear-gradient(
+      to bottom,
+      #ffffff,
+      #f8fafc
+      );
+
+    }
+
+    .hero::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:700px;
+      height:700px;
+
+      border-radius:50%;
+
+      background:rgba(0,133,31,0.07);
+
+      top:-300px;
+      right:-220px;
+
+      filter:blur(120px);
+
+    }
+
+    .hero-content{
+
+      position:relative;
+      z-index:2;
+      max-width:900px;
+
+    }
+
+    .tag{
+
+      display:inline-block;
+
+      padding:10px 18px;
+
+      border-radius:50px;
+
+      background:#ecfdf3;
+
+      color:#00851f;
+
+      font-size:14px;
+      font-weight:700;
+
+      margin-bottom:28px;
+
+    }
+
+    h1{
+
+      font-size:96px;
+      line-height:0.95;
+      font-weight:800;
+
+      letter-spacing:-4px;
+
+      margin-bottom:28px;
+
+    }
+
+    .green{
+
+      color:#00851f;
+
+    }
+
+    .hero p{
+
+      font-size:22px;
+      color:#6b7280;
+      line-height:1.9;
+
+      max-width:760px;
+
+      margin-bottom:42px;
+
+    }
+
+    .buttons{
+
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+
+    }
+
+    .btn{
+
+      padding:16px 32px;
+      border-radius:12px;
+
+      text-decoration:none;
+
+      font-size:15px;
+      font-weight:700;
+
+      transition:0.3s;
+
+    }
+
+    .btn-primary{
+
+      background:#00851f;
+      color:white;
+
+      box-shadow:0 10px 30px rgba(0,133,31,0.2);
+
+    }
+
+    .btn-primary:hover{
+
+      transform:translateY(-4px);
+
+    }
+
+    .btn-secondary{
+
+      border:1px solid #d1d5db;
+      color:#111111;
+
+    }
+
+    .btn-secondary:hover{
+
+      border-color:#00851f;
+      color:#00851f;
+
+    }
+
+    /* FEATURES */
+
+    .features{
+
+      width:90%;
+      margin:auto;
+
+      padding:60px 0 100px;
+
+      display:grid;
+
+      grid-template-columns:
+      repeat(auto-fit,minmax(300px,1fr));
+
+      gap:28px;
+
+    }
+
+    .feature{
+
+      padding:40px;
+
+      border:1px solid #e5e7eb;
+
+      border-radius:28px;
+
+      transition:0.4s;
+
+      background:white;
+
+    }
+
+    .feature:hover{
+
+      transform:translateY(-8px);
+
+      border-color:#00851f;
+
+      box-shadow:0 20px 40px rgba(0,0,0,0.06);
+
+    }
+
+    .feature h2{
+
+      font-size:28px;
+      margin-bottom:16px;
+
+    }
+
+    .feature p{
+
+      color:#6b7280;
+      line-height:1.8;
+
+    }
+
+    footer{
+
+      text-align:center;
+
+      padding:24px;
+
+      border-top:1px solid #e5e7eb;
+
+      color:#6b7280;
+
+      font-size:13px;
+
+    }
+
+    @media(max-width:768px){
+
+      h1{
+
+        font-size:56px;
+        letter-spacing:-1px;
+
+      }
+
+      .hero p{
+
+        font-size:18px;
+
+      }
+
+      nav{
+
+        gap:14px;
+        flex-wrap:wrap;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo-section">
+
+    <img src="logo7.png"
+         class="logo-image">
+
+    <div class="logo-text">
+
+      IraIle
+
+    </div>
+
+  </div>
+
+  
+
+</header>
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="tag">
+
+      AI Creative Platform
+
+    </div>
+
+    <h1>
+
+      Meet
+      <span class="green">Lynx</span>
+
+    </h1>
+
+    <p>
+
+      Lynx is an AI-powered creative platform
+      designed for creators, influencers,
+      startups, and digital marketers.
+      Generate content, automate workflows,
+      create campaigns, and accelerate creativity
+      with intelligent tools.
+
+    </p>
+
+    <div class="buttons">
+
+      <a href="#features"
+         class="btn btn-primary">
+
+         Explore Features
+
+      </a>
+
+      <a href="products.html"
+         class="btn btn-secondary">
+
+         Back To Products
+
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<section class="features"
+         id="features">
+
+  <div class="feature">
+
+    <h2>
+
+      AI Content Creation
+
+    </h2>
+
+    <p>
+
+      Generate captions,
+      marketing copy,
+      campaign ideas,
+      and social content instantly.
+
+    </p>
+
+  </div>
+
+  <div class="feature">
+
+    <h2>
+
+      Smart Design Tools
+
+    </h2>
+
+    <p>
+
+      Create visuals,
+      edit media,
+      and build creative assets
+      using intelligent automation.
+
+    </p>
+
+  </div>
+
+  <div class="feature">
+
+    <h2>
+
+      Marketing Intelligence
+
+    </h2>
+
+    <p>
+
+      Optimize campaigns,
+      analyze engagement,
+      and automate digital marketing workflows.
+
+    </p>
+
+  </div>
+
+</section>
+
+<footer>
+
+  © 2026 IraIle — Lynx Platform. All Rights Reserved.
+
+</footer>
+
+</body>
+
+</html>

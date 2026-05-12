@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>IraIle | Future Intelligence</title>
+
+  <!-- GOOGLE FONTS -->
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+
+      font-family:'Inter',sans-serif;
+
+      background:#000;
+
+      color:white;
+
+      overflow-x:hidden;
+
+    }
+
+    /* ========================= */
+    /* HEADER */
+    /* ========================= */
+
+    header{
+
+      position:absolute;
+
+      top:0;
+      left:0;
+
+      width:100%;
+
+      height:50px;
+
+      z-index:1000;
+
+      padding:0 55px;
+
+      display:flex;
+
+      justify-content:space-between;
+
+      align-items:center;
+
+      background:white;
+
+      border-bottom:1px solid rgba(0,0,0,0.08);
+
+    }
+
+    /* LOGO */
+
+    .logo{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:12px;
+
+    }
+
+    .logo img{
+
+      width:34px;
+
+      height:34px;
+
+      object-fit:cover;
+
+    }
+
+    .logo h1{
+
+      font-family:'Orbitron',sans-serif;
+
+      font-size:24px;
+
+      color:#000;
+
+      font-weight:700;
+
+    }
+
+    /* NAVIGATION */
+
+    nav{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:38px;
+
+    }
+
+    nav a{
+
+      text-decoration:none;
+
+      color:#111827;
+
+      font-size:15px;
+
+      font-weight:600;
+
+      transition:0.3s;
+
+    }
+
+    nav a:hover{
+
+      color:#76b900;
+
+    }
+
+    /* ========================= */
+    /* HERO */
+    /* ========================= */
+
+    .hero{
+
+      width:100%;
+
+      min-height:100vh;
+
+      position:relative;
+
+      display:flex;
+
+      align-items:center;
+
+      padding:120px 60px;
+
+      overflow:hidden;
+
+      background:
+  linear-gradient(
+  to right,
+  rgba(0,0,0,0.98) 10%,
+  rgba(0,0,0,0.92) 35%,
+  rgba(0,0,0,0.82) 60%,
+  rgba(0,0,0,0.65) 100%
+  ),
+  url('D:/IRA corp/sro/43.jpg');
+
+      /* PUT YOUR IMAGE NAME */
+
+      background-size:cover;
+
+      background-position:center;
+
+      background-repeat:no-repeat;
+
+    }
+
+    /* HERO CONTENT */
+
+    .hero-content{
+
+      max-width:760px;
+
+      position:relative;
+
+      z-index:2;
+
+    }
+
+    .hero h1{
+
+      font-size:55px;
+
+      line-height:1.05;
+
+      font-weight:500;
+
+      margin-bottom:24px;
+
+      letter-spacing:-2px;
+
+    }
+
+    .hero p{
+
+      font-size:20px;
+
+      line-height:1.9;
+
+      color:#e5e7eb;
+
+      margin-bottom:42px;
+
+      max-width:760px;
+
+    }
+
+    /* BUTTON */
+
+    .hero-btn{
+
+      display:inline-block;
+
+      padding:18px 34px;
+
+      background:#76b900;
+
+      color:black;
+
+      text-decoration:none;
+
+      font-size:16px;
+
+      font-weight:700;
+
+      transition:0.3s;
+
+    }
+
+    .hero-btn:hover{
+
+      background:white;
+
+      transform:translateY(-3px);
+
+    }
+
+    /* ========================= */
+    /* FEATURES */
+    /* ========================= */
+
+    .features{
+
+      background:#fff;
+
+      color:#111827;
+
+      padding:110px 8%;
+
+    }
+
+    .section-title{
+
+      text-align:center;
+
+      margin-bottom:60px;
+
+    }
+
+    .section-title h2{
+
+      font-size:48px;
+
+      margin-bottom:14px;
+
+      font-weight:800;
+
+    }
+
+    .section-title p{
+
+      font-size:17px;
+
+      color:#6b7280;
+
+      max-width:760px;
+
+      margin:auto;
+
+      line-height:1.9;
+
+    }
+
+    .feature-grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+      gap:28px;
+
+    }
+
+    .feature-card{
+
+      background:white;
+
+      border-radius:24px;
+
+      overflow:hidden;
+
+      border:1px solid #e5e7eb;
+
+      transition:0.35s;
+
+      box-shadow:0 12px 35px rgba(0,0,0,0.05);
+
+    }
+
+    .feature-card:hover{
+
+      transform:translateY(-10px);
+
+      box-shadow:0 25px 55px rgba(0,0,0,0.08);
+
+    }
+
+    .feature-card img{
+
+      width:100%;
+
+      height:220px;
+
+      object-fit:cover;
+
+    }
+
+    .feature-content{
+
+      padding:24px;
+
+    }
+
+    .feature-content h3{
+
+      font-size:24px;
+
+      margin-bottom:12px;
+
+      color:#00b368;
+
+    }
+
+    .feature-content p{
+
+      font-size:14px;
+
+      line-height:1.8;
+
+      color:#6b7280;
+
+    }
+
+    /* ========================= */
+    /* FOOTER */
+    /* ========================= */
+
+    footer{
+
+      background:#ffffff;
+
+      padding:28px;
+
+      text-align:center;
+
+      border-top:1px solid rgba(255,255,255,0.08);
+
+    }
+
+    footer p{
+
+      color:#9ca3af;
+
+      font-size:13px;
+
+    }
+
+    /* ========================= */
+    /* RESPONSIVE */
+    /* ========================= */
+
+    @media(max-width:1200px){
+
+      .hero h1{
+
+        font-size:54px;
+
+      }
+
+      .hero p{
+
+        font-size:18px;
+
+      }
+
+    }
+
+    @media(max-width:900px){
+
+      header{
+
+        flex-direction:column;
+
+        height:auto;
+
+        gap:18px;
+
+        padding:20px;
+
+      }
+
+      nav{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:18px;
+
+      }
+
+      .hero{
+
+        padding:180px 24px 120px;
+
+      }
+
+      .hero h1{
+
+        font-size:46px;
+
+      }
+
+      .hero p{
+
+        font-size:16px;
+
+      }
+
+    }
+
+    @media(max-width:600px){
+
+      .hero h1{
+
+        font-size:36px;
+
+        letter-spacing:-1px;
+
+      }
+
+      .hero p{
+
+        font-size:15px;
+
+        line-height:1.8;
+
+      }
+
+      .hero-btn{
+
+        width:100%;
+
+        text-align:center;
+
+      }
+
+      .section-title h2{
+
+        font-size:34px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+
+    <div class="logo">
+
+      <img src="logo7.png"
+           alt="IraIle Logo">
+
+      <h1>IraIle</h1>
+
+    </div>
+
+    <nav>
+
+      <a href="index.html">Home</a>
+
+      <a href="products.html">Products</a>
+
+      <a href="careers.html">Careers</a>
+
+      <a href="about.html">About</a>
+
+      <a href="contact.html">Contact</a>
+
+    </nav>
+
+  </header>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+
+        Shaping the future of 
+        <br> intelligence
+
+      </h1>
+
+      <p>
+
+        IraIle is building next-generation AI platforms,
+        robotics, enterprise software, and digital ecosystems
+        engineered for the future of creators, businesses, learners
+        and intelligent automation worldwide.
+
+      </p>
+
+      <a href="about.html"
+         class="hero-btn">
+
+        Learn More
+
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="features">
+
+    <div class="section-title">
+
+      <h2>
+
+        Next Generation Solutions
+
+      </h2>
+
+      <p>
+
+        Building advanced technologies designed to transform
+        industries, creators, and digital experiences.
+
+      </p>
+
+    </div>
+
+    <div class="feature-grid">
+
+      <div class="feature-card">
+
+        <img src="D:\IRA corp\Turn AI Tools into Your Online Income Source.jpg"
+             alt="AI">
+
+        <div class="feature-content">
+
+          <h3>
+
+            Artificial Intelligence
+
+          </h3>
+
+          <p>
+
+            Intelligent systems, automation,
+            machine learning, and scalable AI infrastructure.
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="feature-card">
+
+        <img src="D:\IRA corp\robot ai.jpg"
+             alt="Robotics">
+
+        <div class="feature-content">
+
+          <h3>
+
+            Robotics
+
+          </h3>
+
+          <p>
+
+            Future robotics technologies built for automation,
+            operations, and productivity.
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="feature-card">
+
+        <img src="D:\IRA corp\App development.jpg"
+             alt="Software">
+
+        <div class="feature-content">
+
+          <h3>
+
+            Enterprise Platforms
+
+          </h3>
+
+          <p>
+
+            Modern software ecosystems for businesses,
+            creators, and digital transformation.
+
+          </p>
+
+        </div>
+
+      </div>
+
+      <div class="feature-card">
+
+        <img src="D:\IRA corp\download (9).jpg"
+             alt="Creative">
+
+        <div class="feature-content">
+
+          <h3>
+
+            Creative Technology
+
+          </h3>
+
+          <p>
+
+            AI tools designed for creators,
+            influencers, marketing, and innovation.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+
+      © 2026 IraIle. All Rights Reserved.
+
+    </p>
+
+  </footer>
+
+</body>
+
+</html>

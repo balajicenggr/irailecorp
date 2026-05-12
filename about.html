@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>About Us | IraIle</title>
+
+  <!-- GOOGLE FONTS -->
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <style>
+
+    /* ========================= */
+    /* RESET */
+    /* ========================= */
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+
+      font-family:'Inter',sans-serif;
+
+      background:#ffffff;
+
+      color:#111827;
+
+      overflow-x:hidden;
+
+      line-height:1.7;
+
+    }
+
+    /* ========================= */
+    /* HEADER */
+    /* ========================= */
+
+    header{
+
+      width:100%;
+      height:50px;
+
+      padding:0 50px;
+
+      background:rgba(255,255,255,0.94);
+
+      backdrop-filter:blur(18px);
+
+      border-bottom:1px solid #e5e7eb;
+
+      display:flex;
+
+      justify-content:space-between;
+
+      align-items:center;
+
+      position:sticky;
+
+      top:0;
+
+      z-index:1000;
+
+    }
+
+    /* ========================= */
+    /* LOGO */
+    /* ========================= */
+
+    .logo-section{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:10px;
+
+    }
+
+    .logo-image{
+
+      width:30px;
+
+      height:30px;
+
+      object-fit:contain;
+
+      display:block;
+
+    }
+
+    .logo-text{
+
+      font-family:'Orbitron',sans-serif;
+
+      font-size:24px;
+
+      font-weight:700;
+
+      color:#00851f;
+
+      letter-spacing:1px;
+
+      line-height:1;
+
+    }
+
+    /* ========================= */
+    /* NAVIGATION */
+    /* ========================= */
+
+    nav{
+
+      display:flex;
+
+      align-items:center;
+
+      gap:32px;
+
+    }
+
+    nav a{
+
+      text-decoration:none;
+
+      color:#6b7280;
+
+      font-size:14px;
+
+      font-weight:600;
+
+      transition:0.3s;
+
+      position:relative;
+
+      padding:24px 0;
+
+    }
+
+    nav a:hover{
+
+      color:#111827;
+
+    }
+
+    nav a.active{
+
+      color:#111827;
+
+    }
+
+    nav a.active::after{
+
+      content:"";
+
+      position:absolute;
+
+      left:0;
+      bottom:0;
+
+      width:100%;
+      height:2px;
+
+      background:#00851f;
+
+      border-radius:10px;
+
+    }
+
+    /* ========================= */
+    /* HERO */
+    /* ========================= */
+
+    .hero{
+
+      text-align:center;
+
+      padding:120px 20px 80px;
+
+      background:
+      linear-gradient(
+      to bottom,
+      #ffffff,
+      #f8fafc
+      );
+
+      position:relative;
+
+      overflow:hidden;
+
+    }
+
+    .hero::before{
+
+      content:"";
+
+      position:absolute;
+
+      width:520px;
+      height:520px;
+
+      border-radius:50%;
+
+      background:rgba(0,133,31,0.06);
+
+      filter:blur(90px);
+
+      top:-220px;
+      right:-140px;
+
+    }
+
+    .hero h1{
+
+      position:relative;
+
+      z-index:2;
+
+      font-size:72px;
+
+      margin-bottom:24px;
+
+      font-weight:800;
+
+      line-height:1.05;
+
+      letter-spacing:-2px;
+
+      color:#111827;
+
+    }
+
+    .green{
+
+      color:#00851f;
+
+    }
+
+    .hero p{
+
+      position:relative;
+
+      z-index:2;
+
+      max-width:940px;
+
+      margin:auto;
+
+      color:#6b7280;
+
+      font-size:20px;
+
+      line-height:1.9;
+
+    }
+
+    /* ========================= */
+    /* SECTION */
+    /* ========================= */
+
+    .section{
+
+      width:90%;
+
+      margin:auto;
+
+      padding:70px 0;
+
+    }
+
+    .section-title{
+
+      text-align:center;
+
+      margin-bottom:50px;
+
+    }
+
+    .section-title h2{
+
+      font-size:48px;
+
+      margin-bottom:18px;
+
+      color:#111827;
+
+      font-weight:800;
+
+      letter-spacing:-1px;
+
+    }
+
+    .section-title p{
+
+      color:#6b7280;
+
+      max-width:920px;
+
+      margin:auto;
+
+      font-size:18px;
+
+      line-height:1.9;
+
+    }
+
+    /* ========================= */
+    /* GRID */
+    /* ========================= */
+
+    .grid{
+
+      display:grid;
+
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+      gap:28px;
+
+    }
+
+    /* ========================= */
+    /* CARD */
+    /* ========================= */
+
+    .card{
+
+      background:white;
+
+      border:1px solid #e5e7eb;
+
+      padding:34px;
+
+      border-radius:22px;
+
+      transition:0.35s;
+
+      box-shadow:0 8px 28px rgba(0,0,0,0.05);
+
+      position:relative;
+
+      overflow:hidden;
+
+    }
+
+    .card::before{
+
+      content:"";
+
+      position:absolute;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:4px;
+
+      background:#00851f;
+
+      transform:scaleX(0);
+
+      transform-origin:left;
+
+      transition:0.35s;
+
+    }
+
+    .card:hover::before{
+
+      transform:scaleX(1);
+
+    }
+
+    .card:hover{
+
+      border-color:#d6f5de;
+
+      transform:translateY(-6px);
+
+      box-shadow:0 18px 45px rgba(0,0,0,0.06);
+
+    }
+
+    .card h3{
+
+      font-size:26px;
+
+      margin-bottom:16px;
+
+      color:#00851f;
+
+      font-weight:700;
+
+    }
+
+    .card p{
+
+      color:#6b7280;
+
+      font-size:15px;
+
+      line-height:1.9;
+
+    }
+
+    /* ========================= */
+    /* VISION MISSION */
+    /* ========================= */
+
+    .vision-mission{
+
+      display:grid;
+
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+      gap:28px;
+
+      margin-top:10px;
+
+    }
+
+    .vision-box{
+
+      background:white;
+
+      border:1px solid #e5e7eb;
+
+      padding:42px;
+
+      border-radius:24px;
+
+      box-shadow:0 8px 28px rgba(0,0,0,0.05);
+
+      transition:0.35s;
+
+    }
+
+    .vision-box:hover{
+
+      transform:translateY(-6px);
+
+      border-color:#d6f5de;
+
+    }
+
+    .vision-box h2{
+
+      font-size:36px;
+
+      margin-bottom:18px;
+
+      color:#00851f;
+
+      font-weight:800;
+
+    }
+
+    .vision-box p{
+
+      color:#6b7280;
+
+      font-size:16px;
+
+      line-height:1.9;
+
+    }
+
+    /* ========================= */
+    /* TEAM */
+    /* ========================= */
+
+    .team-container{
+
+      display:grid;
+
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+      gap:28px;
+
+      margin-top:40px;
+
+    }
+
+    .team-card{
+
+      background:white;
+
+      border:1px solid #e5e7eb;
+
+      padding:38px 28px;
+
+      border-radius:22px;
+
+      text-align:center;
+
+      transition:0.35s;
+
+      box-shadow:0 8px 28px rgba(0,0,0,0.05);
+
+    }
+
+    .team-card:hover{
+
+      transform:translateY(-6px);
+
+      border-color:#d6f5de;
+
+    }
+
+    .team-image{
+
+      width:88px;
+
+      height:88px;
+
+      margin:auto;
+
+      margin-bottom:22px;
+
+      border-radius:50%;
+
+      background:#00851f;
+
+      color:white;
+
+      display:flex;
+
+      justify-content:center;
+
+      align-items:center;
+
+      font-size:30px;
+
+      font-weight:700;
+
+      box-shadow:0 10px 25px rgba(0,133,31,0.2);
+
+    }
+
+    .team-card h3{
+
+      font-size:26px;
+
+      margin-bottom:14px;
+
+      color:#00851f;
+
+      font-weight:700;
+
+    }
+
+    .team-card p{
+
+      color:#6b7280;
+
+      line-height:1.9;
+
+      font-size:15px;
+
+    }
+
+    /* ========================= */
+    /* FOOTER */
+    /* ========================= */
+
+    footer{
+
+      text-align:center;
+
+      padding:22px;
+
+      background:#f9fafb;
+
+      border-top:1px solid #e5e7eb;
+
+      margin-top:40px;
+
+    }
+
+    footer p{
+
+      color:#6b7280;
+
+      font-size:13px;
+
+    }
+
+    /* ========================= */
+    /* RESPONSIVE */
+    /* ========================= */
+
+    @media(max-width:900px){
+
+      .hero h1{
+
+        font-size:58px;
+
+      }
+
+      .section-title h2{
+
+        font-size:40px;
+
+      }
+
+    }
+
+    @media(max-width:768px){
+
+      header{
+
+        flex-direction:column;
+
+        height:auto;
+
+        padding:18px;
+
+        gap:14px;
+
+      }
+
+      nav{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:18px;
+
+      }
+
+      .logo-text{
+
+        font-size:22px;
+
+      }
+
+      .hero{
+
+        padding:150px 20px 70px;
+
+      }
+
+      .hero h1{
+
+        font-size:46px;
+
+        letter-spacing:-1px;
+
+      }
+
+      .hero p{
+
+        font-size:17px;
+
+      }
+
+      .section-title h2{
+
+        font-size:34px;
+
+      }
+
+      .vision-box{
+
+        padding:34px;
+
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+<!-- ========================= -->
+<!-- HEADER -->
+<!-- ========================= -->
+
+<header>
+
+  <div class="logo-section">
+
+    <img src="logo7.png"
+         alt="IraIle Logo"
+         class="logo-image">
+
+    <div class="logo-text">
+
+      IraIle
+
+    </div>
+
+  </div>
+
+  <nav>
+
+    <a href="index.html">
+
+      Home
+
+    </a>
+
+    <a href="products.html">
+
+      Products
+
+    </a>
+
+    <a href="careers.html">
+
+      Careers
+
+    </a>
+
+    <a href="about.html"
+       class="active">
+
+      About Us
+
+    </a>
+
+    <a href="contact.html">
+
+      Contact
+
+    </a>
+
+  </nav>
+
+</header>
+
+<!-- ========================= -->
+<!-- HERO -->
+<!-- ========================= -->
+
+<section class="hero">
+
+  <h1>
+
+    About
+    <span class="green">IraIle</span>
+
+  </h1>
+
+  <p>
+
+    IraIle is a future-focused technology startup building intelligent systems across AI, robotics, enterprise software,
+    automation, and digital platforms. The company develops scalable technologies designed to enhance learning, productivity,
+    creativity, and business transformation through innovation-driven solutions.
+
+  </p>
+
+</section>
+
+<!-- ========================= -->
+<!-- OUR FOCUS -->
+<!-- ========================= -->
+
+<section class="section">
+
+  <div class="section-title">
+
+    <h2>
+
+      Areas We Are Exploring
+
+    </h2>
+
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+
+      <h3>Artificial Intelligence</h3>
+
+      <p>
+
+        Researching intelligent systems, automation, robotics
+        and AI-powered experiences.
+
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Enterprise Software</h3>
+
+      <p>
+
+        Building scalable digital tools for modern
+        businesses and organizations.
+
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Creative Technology</h3>
+
+      <p>
+
+        Exploring future software for design,
+        media, and content creation.
+
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Intelligent Automation</h3>
+
+      <p>
+
+        Developing systems that improve workflows,
+        productivity, and operational efficiency.
+
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Digital Platforms</h3>
+
+      <p>
+
+        Creating future-ready applications
+        and connected digital ecosystems.
+
+      </p>
+
+    </div>
+
+    <div class="card">
+
+      <h3>Research & Innovation</h3>
+
+      <p>
+
+        Continuously exploring emerging technologies
+        and next-generation ideas.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- VISION & MISSION -->
+<!-- ========================= -->
+
+<section class="section">
+
+  <div class="vision-mission">
+
+    <div class="vision-box">
+
+      <h2>
+
+        Vision
+
+      </h2>
+
+      <p>
+
+        To build intelligent technologies that empower people,
+        businesses, and future digital ecosystems through
+        innovation and scalable software.
+
+      </p>
+
+    </div>
+
+    <div class="vision-box">
+
+      <h2>
+
+        Mission
+
+      </h2>
+
+      <p>
+
+        To research, design, and develop intelligent digital
+        products that simplify workflows, improve experiences,
+        and support the future of connected technology.
+
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- FOOTER -->
+<!-- ========================= -->
+
+<footer>
+
+  <p>
+
+    © 2026 IraIle. All Rights Reserved.
+
+  </p>
+
+</footer>
+
+</body>
+
+</html>
